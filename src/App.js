@@ -51,7 +51,9 @@ const App = (props) => {
       setTasks(editedTaskList);
   }
 
-  const taskList = tasks.map((task) => (
+  const taskList = tasks
+  .filter(FILTER_MAP[filter])
+  .map((task) => (
     <Todo
       id={task.id}
       name={task.name}
@@ -62,9 +64,14 @@ const App = (props) => {
       editTask={editTask}
     />
   ));
+  
 
   const filterList = FILTER_NAMES.map((name) => (
-    <FilterButton key={name} name={name} />
+    <FilterButton key={name} 
+    name={name} 
+    isPressed={name === filter}
+    setFilter={setFilter}
+    />
   ));
   
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
