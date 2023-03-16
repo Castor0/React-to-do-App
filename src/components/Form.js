@@ -9,7 +9,7 @@ const Form = (props) => {
         props.addTask(name);
         setName("");
     }
-    
+
     const handleChange = (e) => {
         setName(e.target.value)
     }
@@ -36,6 +36,5 @@ const Form = (props) => {
         </form>
     );
 }
-
 
 export default Form;
